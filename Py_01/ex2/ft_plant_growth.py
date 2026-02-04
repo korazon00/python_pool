@@ -16,22 +16,24 @@ class Plant:
 
 
 plant1 = Plant("Rose", 25, 30)
-plants = [plant1]
+plant2 = Plant("Sunflower", 30, 40)
+plants = [plant1, plant2]
 
 
 def ft_plant_grow() -> None:
+    total_growth: int = 0
     print("=== Day 1 ===")
     for plant in plants:
         plant.get_info()
-    start = plant1.height
     for i in range(6):
         for p in plants:
             p.grow()
+            total_growth += 1
             p.age()
     print("=== Day 7 ===")
     for plant in plants:
         plant.get_info()
-    print(f"Growth this week: +{plant1.height - start}cm")
+    print(f"Growth this week: +{total_growth}cm")
 
 
 if __name__ == "__main__":

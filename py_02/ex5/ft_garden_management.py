@@ -12,18 +12,18 @@ class WaterError(GardenError):
 
 
 class Plant:
-    def __init__(self, name: str, water: int, sun: int):
+    def __init__(self, name: str, water: int, sun: int) -> None:
         self.name: str = name
         self.water: int = water
         self.sun: int = sun
 
 
 class GardenManager:
-    def __init__(self):
+    def __init__(self) -> None:
         self.Plants: list[Plant] = []
         self.tank: int = 20
 
-    def add_plants(self, plant: Plant):
+    def add_plants(self, plant: Plant) -> None:
         try:
             if not plant.name or plant.name.__class__.__name__ != "str":
                 raise PlantError("Plant name cannot be empty!\n")
@@ -32,7 +32,7 @@ class GardenManager:
         except PlantError as e:
             print(f"Error adding plant: {e}")
 
-    def water_plants(self):
+    def water_plants(self) -> None:
         try:
             print("Opening watering system")
             for plant in self.Plants:
@@ -45,7 +45,7 @@ class GardenManager:
         finally:
             print("Closing watering system (cleanup)\n")
 
-    def check_plants_health(self, name: str, water: int, sun: int):
+    def check_plants_health(self, name: str, water: int, sun: int) -> None:
         if water > 10:
             raise WaterError(f"Water level {water} is too high (max 10)")
         if water < 1:
@@ -60,7 +60,7 @@ class GardenManager:
         print(f"{name}: healty (water: {water}, sun: {sun})")
 
 
-def test_garden_management():
+def test_garden_management() -> None:
     print("=== Garden Management System ===\n")
 
     Manager: GardenManager = GardenManager()

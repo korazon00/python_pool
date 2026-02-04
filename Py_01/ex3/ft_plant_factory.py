@@ -1,11 +1,11 @@
 
 class Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name: str = name
         self.height: int = height
         self.age: int = age
 
-    def get_info(self):
+    def get_info(self) -> None:
         print(f"Created: {self.name} ({self.height}cm, {self.age} days)")
 
 
@@ -24,7 +24,7 @@ data: list[tuple[str, int, int]] = [
 
 def ft_plant_factory() -> None:
     print("=== Plant Factory Output ===")
-    plants = factory_patern(data)
+    plants: list[Plant] = factory_patern(data)
     i: int = 0
     for p in plants:
         p.get_info()

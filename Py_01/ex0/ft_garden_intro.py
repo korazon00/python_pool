@@ -1,8 +1,11 @@
 
 def ft_garden_intro():
-    print("Plant: Rose")
-    print("Height: 25cm")
-    print("Age: 30 days\n")
+    name: str = "Rose"
+    height: int = 25
+    age: int = 30
+    print(f"Plant: {name}")
+    print(f"Height: {height}cm")
+    print(f"Age: {age} days\n")
 
 
 if __name__ == "__main__":
