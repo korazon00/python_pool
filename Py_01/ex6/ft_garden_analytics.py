@@ -67,9 +67,13 @@ class GardenManager:
     gardens = []
     garden_count = 0
 
+    def heading():
+        print("=== Garden Management System Demo ===\n")
+
+    heading = staticmethod(heading)
+
     class GardenStats:
-        @staticmethod
-        def print_stats(garden: Garden) -> None:
+        def print_stats(cls, garden: Garden) -> None:
             r: int = 0
             f: int = 0
             p: int = 0
@@ -85,13 +89,14 @@ class GardenManager:
             print(f"\nPlant added: {garden.count}, Total growth:", end=" ")
             print(f"{garden.total_grow}cm")
             print(f"Plant type: {r} regular, {f} flowering,", end=" ")
-            print(f"{p} prize flowering")
+            print(f"{p} prize flowers")
+
+        print_stats = classmethod(print_stats)
 
     def add_garden(self, garden) -> None:
         GardenManager.gardens += [garden]
         GardenManager.garden_count += 1
 
-    @classmethod
     def creat_garden_network(cls) -> None:
         print(f"\n=== {cls.gardens[0].owner}'s Garden Report ===")
         print("Plants in garden:")
@@ -112,7 +117,8 @@ class GardenManager:
             if i < cls.garden_count - 1:
                 print(", ", end="")
 
-    @classmethod
+    creat_garden_network = classmethod(creat_garden_network)
+
     def height_validation(cls) -> bool:
         for garden in cls.gardens:
             for plant in garden.plants:
@@ -120,17 +126,21 @@ class GardenManager:
                     return False
         return True
 
-    @classmethod
+    height_validation = classmethod(height_validation)
+
     def total_gardens(cls) -> None:
         return cls.garden_count
 
+    total_gardens = classmethod(total_gardens)
+
 
 if __name__ == "__main__":
-    print("=== Garden Management System Demo ===\n")
-    manager = GardenManager()
+    manager: GardenManager = GardenManager()
 
-    alice = Garden("Alice")
-    bob = Garden("Bob")
+    manager.heading()
+
+    alice: Garden = Garden("Alice")
+    bob: Garden = Garden("Bob")
 
     manager.add_garden(alice)
     manager.add_garden(bob)

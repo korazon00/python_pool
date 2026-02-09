@@ -38,7 +38,7 @@ class SecurePlant:
 
 def ft_garden_security() -> None:
     print("=== Garden Security System ===")
-    plant = SecurePlant("Rose", 0, 0)
+    plant = SecurePlant("Rose", 4, 10)
     plant.get_info()
 
 
