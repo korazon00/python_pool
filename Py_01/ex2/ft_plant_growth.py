@@ -15,9 +15,9 @@ class Plant:
         self.age_of_p += 1
 
 
-plant1 = Plant("Rose", 25, 30)
-plant2 = Plant("Sunflower", 30, 40)
-plants = [plant1, plant2]
+plant1: Plant = Plant("Rose", 25, 30)
+plant2: Plant = Plant("Sunflower", 30, 40)
+plants: list[Plant] = [plant1, plant2]
 
 
 def ft_plant_grow() -> None:

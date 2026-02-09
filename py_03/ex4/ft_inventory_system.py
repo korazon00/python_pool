@@ -7,11 +7,9 @@ def sort_dict(dict: dict) -> dict:
     tmp_dict = {}
     for item in dict.items():
         tmp_dict.update({item})
-    print(tmp_dict)
 
     x = 0
     while x < len(tmp_dict):
-        print(len(tmp_dict))
         tmp_v = 0
         tmp_k = 0
         v = 0
@@ -21,11 +19,25 @@ def sort_dict(dict: dict) -> dict:
                 tmp_k = k
 
         cur_dict.update({tmp_k: tmp_v})
-        tmp_dict.pop(tmp_k)
+        tmp_dict[tmp_k] = 0
         x += 1
-    print(cur_dict)
     return cur_dict
 
+def the_most_abundant(dict: dict) -> None:
+    tmp_v = 0
+    for k, v in dict.items():
+        if v > tmp_v:
+            tmp_v = v
+            tmp_k = k
+    print(f"Most abundant: {tmp_k} ({tmp_v}", end=" ")
+    if tmp_v > 1:
+        print("units)")
+    else:
+        print("unit)")
+#     print(f"Most abundant: {k} ({v}", end=" ")
+
+# def Least_abundant(dict: dict) -> None:
+#     pass
 
 if __name__ == "__main__":
 
@@ -51,5 +63,27 @@ if __name__ == "__main__":
     print("\n=== Current Inventory ===")
     
     inventry = sort_dict(inventry)
-    # for x in inventry:
-    #     print(x)
+    for x in inventry:
+        print(f"{x}: {inventry[x]}",end=" ")
+        if inventry[x] > 1:
+            print("units",end=" ")
+        else:
+            print("unit", end=" ")
+        print(f"({(inventry[x] * 100 / i):.1f}%)")
+
+    print("=== Inventory Statistics ===")
+    # # x = 0
+    # # for item in inventry:
+    # #     print(f"\nMost abundant: {item} ({inventry[item]}", end=" ")
+    # #     if inventry[item] > 1:
+    # #         print("units)",end=" ")
+    # #     else:
+    # #         print("unit)", end=" ")
+    # #     if x < len(inventry.items()):
+    # #         continue
+    # #     x += 1
+    the_most_abundant(inventry)
+    # if inventry[item] > 1:
+    #     print("units)",end=" ")
+    # else:
+    #     print("unit)", end=" ")
