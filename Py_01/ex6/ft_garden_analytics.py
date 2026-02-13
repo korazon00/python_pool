@@ -42,7 +42,7 @@ class PrizeFlower (FloweringPlant):
 class Garden:
     def __init__(self, owner: str) -> None:
         self.owner: str = owner
-        self.plants: list = []
+        self.plants: list[Plant] = []
         self.count: int = 0
         self.total_grow: int = 0
 
@@ -64,10 +64,10 @@ class Garden:
 
 
 class GardenManager:
-    gardens = []
-    garden_count = 0
+    gardens: list[Garden] = []
+    garden_count: int = 0
 
-    def heading():
+    def heading() -> None:
         print("=== Garden Management System Demo ===\n")
 
     heading = staticmethod(heading)
@@ -93,16 +93,17 @@ class GardenManager:
 
         print_stats = classmethod(print_stats)
 
-    def add_garden(self, garden) -> None:
+    def add_garden(self, garden: Garden) -> None:
         GardenManager.gardens += [garden]
         GardenManager.garden_count += 1
 
     def creat_garden_network(cls) -> None:
-        print(f"\n=== {cls.gardens[0].owner}'s Garden Report ===")
-        print("Plants in garden:")
-        garden: Garden = cls.gardens[0]
-        for j in range(garden.count):
-            garden.plants[j].get_info()
+        for garden in cls.gardens:
+            print(f"\n=== {garden.owner}'s Garden Report ===")
+            print("Plants in garden:")
+            for j in range(garden.count):
+                garden.plants[j].get_info()
+            break
 
         cls.GardenStats.print_stats(garden)
 
