@@ -11,16 +11,15 @@ def sort_dict(dic: dict) -> dict:
 
     x: int = 0
     while x < len(tmp_dict):
-        tmp_v: int = 0
+        tmp_v: int = None
         tmp_k: int = 0
         v: int = 0
         for k, v in tmp_dict.items():
-            if v > tmp_v:
+            if (tmp_v is None or v > tmp_v) and k not in cur_dict:
                 tmp_v = v
                 tmp_k = k
 
         cur_dict.update({tmp_k: tmp_v})
-        tmp_dict[tmp_k] = 0
         x += 1
     return cur_dict
 

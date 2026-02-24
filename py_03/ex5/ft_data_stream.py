@@ -87,7 +87,7 @@ def prime_numbers(n) -> Generator[int, None, None]:
 
 def generator_demonstration() -> None:
     print("\n=== Generator Demonstration ===")
-    a: int = 10
+    a: int = 5
     h: Generator = fibonacci_sequence(a)
     x: int = 1
     print(f"Fibonacci sequence (first {a}):", end=" ")
