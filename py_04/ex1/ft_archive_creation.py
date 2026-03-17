@@ -1,5 +1,5 @@
 
-def ft_archive_creation():
+def ft_archive_creation() -> None:
 
     print("=== CYBER ARCHIVES - PRESERVATION SYSTEM ===\n")
 
@@ -7,10 +7,12 @@ def ft_archive_creation():
     print("Storage unit created successfully...\n")
 
     print("Inscribing preservation data...")
-    with open("new_discovery.txt", "w") as file:
-        file.write("[ENTRY 001] New quantum algorithm discovered\n")
-        file.write("[ENTRY 002] Efficiency increased by 347%\n")
-        file.write("[ENTRY 003] Archived by Data Archivist trainee\n")
+
+    file = open("new_discovery.txt", "w")
+    file.write("[ENTRY 001] New quantum algorithm discovered\n")
+    file.write("[ENTRY 002] Efficiency increased by 347%\n")
+    file.write("[ENTRY 003] Archived by Data Archivist trainee\n")
+    file.close()
 
     file = open("new_discovery.txt")
     content: str = file.read()

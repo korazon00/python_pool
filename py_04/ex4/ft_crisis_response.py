@@ -1,40 +1,38 @@
 
-def ft_crisis_response() -> None:
+def ft_crisis_response(file: str) -> None:
 
-    print("CRISIS ALERT: Attempting access to 'lost_archive.txt'...")
     try:
-        with open("lost_archive.txt") as lost:
-            lost.read()
+        with open(file) as f:
+            print(f"\nROUTINE ACCESS: Attempting access to '{file}'...")
+            data = f.read()
+            print(f"SUCCESS: Archive recovered - ``{data}''")
+            print("STATUS: Normal operations resumed")
+
     except FileNotFoundError:
+        print(f"\nCRISIS ALERT: Attempting access to '{file}'...")
         print("RESPONSE: Archive not found in storage matrix")
-    finally:
         print("STATUS: Crisis handled, system stable")
 
-    print("\nCRISIS ALERT: Attempting access to 'classified_vault.txt'...")
-    try:
-        with open("classified_vault.txt") as access_deny:
-            access_deny.write()
     except PermissionError:
+        print(f"\nCRISIS ALERT: Attempting access to '{file}'...")
         print("RESPONSE: Security protocols deny access")
-    finally:
         print("STATUS: Crisis handled, security maintained")
 
-    print("\nROUTINE ACCESS: Attempting access to 'standard_archive.txt'...")
-    try:
-        with open("standard_archive.txt") as stand:
-            data: str = stand.read()
-            print(f"SUCCESS: Archive recovered - ``{data}''")
-    except Exception as e:
-        print("STATUS: Operations have not resumed normally")
-    else:
-        print("STATUS: Normal operations resumed")
+
+def main() -> None:
+
+    files = ['lost_archive.txt', 'classified_vault.txt',
+             'standard_archive.txt']
+
+    for file in files:
+        ft_crisis_response(file)
 
 
 if __name__ == "__main__":
-    print("=== CYBER ARCHIVES - CRISIS RESPONSE SYSTEM ===\n")
+    print("=== CYBER ARCHIVES - CRISIS RESPONSE SYSTEM ===")
 
     try:
-        ft_crisis_response()
+        main()
     except Exception as e:
         print("ERROR: ", e)
     finally:

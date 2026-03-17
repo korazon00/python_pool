@@ -112,7 +112,7 @@ def generator_demonstration() -> None:
 
 def main() -> None:
     print("=== Game Data Stream Processor ===\n")
-    game_events: int = 100
+    game_events: int = 1000
     event = gen(game_events)
     analytics: list = []
     i: int = 0

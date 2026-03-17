@@ -127,7 +127,7 @@ def main():
     print("\n=== Item Categories ===")
 
     items = item_categories(inventry)
-    print(f"Moderate: {items["moderate"]}")
+    print(f"Moderate: {items['moderate']}")
     print(f"Scarce: {items["scarce"]}")
 
     print("\n=== Management Suggestions ===")

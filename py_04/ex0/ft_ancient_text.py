@@ -1,13 +1,14 @@
 
-def ancient_text():
+def ancient_text() -> None:
     print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===\n")
 
     print("Accessing Storage Vault: ancient_fragment.txt")
     print("Connection established...\n")
 
     try:
-        with open("ancient_fragment.txt") as file:
-            content = file.read()
+        file = open("ancient_fragment.txt")
+        content = file.read()
+        file.close()
     except FileNotFoundError:
         print("ERROR: Storage vault not found")
     else:
